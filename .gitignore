@@ -168,3 +168,4 @@ cython_debug/
 images/*.jpg
 images/*.jpeg
 images/*.png
+images/*.webp
