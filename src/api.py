@@ -23,7 +23,7 @@ def process(reference_file: UploadedFile, target_file: UploadedFile) -> tuple:
     reference = resize_image(reference, max_size=1200)
     color_palette_img = generate_color_palette(reference, target)
 
-    logger.info("Generating composed image...")
+    logger.info("Recoloring image...")
     start_time = time.time()
     img_res, has_error = transfer_color_style(target, color_palette_img)
     end_time = time.time()

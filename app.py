@@ -48,7 +48,7 @@ def run():
         st.image(reference_file, width=400, caption="Reference colors")
         st.image(target_file, width=400, caption="Target")
 
-        with st.spinner("In progress.."):
+        with st.spinner("In progress..."):
             image_bytes, format, has_error = process(reference_file, target_file)
 
         if has_error:

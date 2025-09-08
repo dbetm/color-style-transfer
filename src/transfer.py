@@ -39,6 +39,8 @@ def transfer_color_style(target: Image.Image, palette_img: Image.Image) -> Tuple
 
     if response:
         for part in response.parts:
+            if part.text:
+                continue
             return part.as_image(), False
 
     return None, True
