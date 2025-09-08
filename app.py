@@ -7,6 +7,10 @@ from src.utils import build_result_filename
 
 
 
+FILE_FORMATS = ["jpg", "jpeg", "png", "webp"]
+
+
+
 def reset():
     # Increment counter to create new file uploader instances
     if 'reset_counter' not in st.session_state:
@@ -29,12 +33,12 @@ def run():
 
     reference_file = st.file_uploader(
         "Choose a reference photo",
-        type=["jpg", "jpeg", "png", "webp"],
+        type=FILE_FORMATS,
         key=f"ref_img_{st.session_state.reset_counter}"
     )
     target_file = st.file_uploader(
         "Choose a target photo",
-        type=["jpg", "jpeg", "png", "webp"],
+        type=FILE_FORMATS,
         key=f"target_img_{st.session_state.reset_counter}"
     )
 
@@ -53,7 +57,6 @@ def run():
                 body="Error while generating the final image, refresh and try again...",
                 icon="🚨",
             )
-            st.button("Clear", on_click=reset)
         else:
             filename = build_result_filename(target_filename, format.lower())
 
@@ -72,7 +75,8 @@ def run():
 
             st.download_button("Download", image_bytes, file_name=filename, on_click=reset)
 
-            st.info(body="App created by David Betancourt Montellano")
+        st.button("Clear", on_click=reset)
+        st.info(body="App created by David Betancourt Montellano")
 
 
 
