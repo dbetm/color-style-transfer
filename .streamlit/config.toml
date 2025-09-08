@@ -1,0 +1,6 @@
+[server]
+maxUploadSize=7
+
+[theme]
+base="dark"
+primaryColor="purple"
